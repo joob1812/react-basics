@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "First Article",
+      "content": "This is the content of the first article.",
+      "author": "John Doe",
+      "createdAt": "2025-01-01T10:00:00Z",
+      "image": "https://via.placeholder.com/800x400"
+    },
+    {
+      "id": 2,
+      "title": "Second Article",
+      "content": "This is the content of the second article.",
+      "author": "Jane Doe",
+      "createdAt": "2025-01-02T12:00:00Z",
+      "image": "https://via.placeholder.com/800x400"
+    }
+  ]
+}

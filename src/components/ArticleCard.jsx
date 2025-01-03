@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function ArticleCard({ title, content, author, createdAt, onDelete }) {
+export default function ArticleCard({ id, title, content, author, createdAt, onDelete }) {
     const [likes, setLikes] = useState(0);
 
     const handleLike = () => {
@@ -28,6 +28,7 @@ export default function ArticleCard({ title, content, author, createdAt, onDelet
 
             {/* Section "likes" en bas à gauche */}
             <div className="absolute bottom-2 left-2 flex items-center gap-2">
+                <span className="text-gray-700 font-medium">{likes}</span>
                 <button
                     className="text-red-500 text-2xl focus:outline-none"
                     onClick={handleLike}
@@ -35,7 +36,6 @@ export default function ArticleCard({ title, content, author, createdAt, onDelet
                 >
                     ❤️
                 </button>
-                <span className="text-gray-700 font-medium">{likes}</span>
             </div>
         </div>
     );

@@ -14,9 +14,23 @@ export default function CreateArticle() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Article Submitted:', formData);
-        // Reset the form
-        setFormData({ title: '', content: '', author: '' });
+
+        fetch('http://localhost:3000/articles', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...formData, createdAt: new Date().toISOString() }),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                console.log('Article added:', data);
+                setFormData({ title: '', content: '', author: '' });
+            })
+            .catch((error) => console.error('Error adding article:', error));
     };
 
     return (
